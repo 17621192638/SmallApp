@@ -1,0 +1,51 @@
+<!--pages/bind/bing.wxml-->
+
+<view class="container">
+  <view class="head">
+    <block wx:if="{{userInfo}}">
+      <image class='image' src="{{userInfo.avatarUrl}}"></image>
+    </block>
+  </view>
+  <view class="hr1"></view>
+
+
+  <form bindsubmit="formSubmit" bindreset="formReset">
+    <view class="part1">
+      <image class='image' src='/images/icon_username.png'></image>
+      <text>账号</text>
+      <input name="username" class="input1" placeholder="请输入你的账号" />
+    </view>
+    <view class="hr2"></view>
+
+    <view class="part1">
+      <image class='image' src='/images/icon_pwd.png'></image>
+      <text>密码</text>
+      <input name="password" password class="input1" placeholder="请输入你的密码" />
+    </view>
+    <view class="hr2"></view>
+
+
+    <view class="part1">
+      <radio-group name="userType">
+        <label>
+          <radio value="客户" style="margin-left:25rpx" checked />
+          <text style="margin-left:4rpx"> 网上查询账户</text>
+        </label>
+        <label style="margin-left:50rpx;">
+          <radio value="员工" style="margin-left:25rpx" />
+          <text style="margin-left:4rpx"> 所内员工账户</text>
+        </label>
+      </radio-group>
+    </view>
+    <view class="hr1" style="margin-bottom:30rpx;"></view>
+    <button class="button1" type="primary" formType="submit">提交认证</button>
+    <button class="button1" style="margin-top:30rpx" type="primary" formType="reset">重置</button>
+  </form>
+  <button catchtap="go_register" class="button1" style="margin-top:30rpx" type="primary" >没有网上报验查询账户？</button>
+  <view class="part2">
+    <text>温馨提示:</text>
+    <text>1.老用户认证仅支持绑定上海市质检院纤维检验所内部员工账户和原有客户的网上报验查询账户。</text>
+    <text>2.每个微信号仅能关联绑定一个过去已存在的账户或者新注册一个新账户。</text>
+    <text>3.提交认证过程中出现未知错误请返回【用户中心】联系技术人员。</text>
+  </view>
+</view>

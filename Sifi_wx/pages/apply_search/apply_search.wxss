@@ -1,0 +1,153 @@
+/* pages/apply_search/apply_search.wxss */
+
+.head {
+  position: absolute;
+  width: 100%;
+  height: 110rpx;
+  background-color: #f5f5f5;
+  border-bottom: 2rpx solid #bfbfbf;
+  z-index:99;
+}
+
+.search {
+  width: 680rpx;
+  height: 80rpx;
+  margin: 15rpx 35rpx;
+  background-color: white;
+  border-radius: 15rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 35rpx;
+  color: #8a8a8a;
+}
+.head .part{
+    width: 680rpx;
+  height: 80rpx;
+  margin: 0rpx 35rpx;
+  color: #8a8a8a;
+   font-size: 28rpx;
+   line-height:80rpx;
+}
+.head text{
+  color: #00B0F0
+}
+
+.search image {
+  margin: 0 20rpx;
+  width: 45rpx;
+  height: 45rpx;
+}
+
+.content {
+  width: 700rpx;
+  height: 180rpx;
+  margin: 20rpx 25rpx;
+  display: flex;
+  flex-direction: row;
+}
+
+.left {
+  width: 50rpx;
+  margin-right: 20rpx;
+}
+
+.left .image {
+  height: 50rpx;
+  width: 50rpx;
+}
+
+.right {
+  width: 630rpx;
+  height: 180rpx;
+}
+
+.part1 {
+  width: 100%;
+  height: 45rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 25rpx;
+  color: #8a8a8a;
+}
+
+.part2 {
+  /* color: red; 已出证：不合格 */
+  /* color: #56A36C; 已出证：合格 */
+  /* color:#1DB0B8; 已收样 */
+    /* color:#00B0F0; 检测中 */
+  color:#00B0F0;
+  height:40rpx;
+  font-size: 30rpx;
+  line-height: 40rpx;
+  text-align: center;
+  width: 580rpx;
+  margin-right: 70rpx;
+
+}
+
+.image1{
+position:relative;
+width:160rpx;
+height:160rpx;
+z-index:89;
+left:450rpx;
+bottom:190rpx;
+
+}
+
+.part3 {
+  color: black;
+  height: 60rpx;
+  font-size: 38rpx;
+  width: 580rpx;
+  margin-right: 70rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 650rpx;
+  line-height: 60rpx;
+  text-align: center;
+}
+
+
+.footer{
+  position: fixed;
+  width: 100%;
+  height: 100rpx;
+  background-color: #f5f5f5;
+  border-top: 2rpx solid #bfbfbf;
+ bottom:0;
+  z-index:99;
+}
+
+.foot{
+  width:100%;
+  height:100rpx;
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+font-size:30rpx;
+}
+.foot .page{
+width:100rpx;
+height:60rpx;
+border:3rpx solid   #e2e2e2;
+line-height: 60rpx;
+text-align:center;
+margin:0 30rpx;
+}
+.foot .box{
+  background-color: #399de6;
+  color:white;
+  font-size: 35rpx;
+width:160rpx;
+height:60rpx;
+line-height: 60rpx;
+text-align:center;
+
+}
+

@@ -1,0 +1,120 @@
+<view class="container">
+  <view class="head">
+    <view data-text="{{model.musterName}}" catchtap="show_name" class="name">{{model.musterName?model.musterName:'无'}}</view>
+    <block wx:if="{{model.endNode=='出证'}}">
+      <text class="status" style="color:#56A36C">出证 </text>
+      <view bindtap='checkNet' class="date1" style="color:#399de6">( 点击在线预览证书 )</view>
+      <image wx:if="{{model.isPass=='合格'}}" class="image1" src="/images/icon_pass.png"></image>
+      <image wx:if="{{model.isPass=='不合格'}}" class="image1" src="/images/icon_nopass.png"></image>
+    </block>
+    <block wx:else>
+      <text class="status" style="color:#00B0F0">正在检测中...</text>
+      <view class="date1">预计出证日期:{{model.endNode?model.endNode:'无'}}</view>
+    </block>
+  </view>
+  <view class="hr5">基本信息</view>
+  <view class="part1">
+    <view class="left">
+      <image class="image" src="/images/icon_cd_cert.png"></image>
+      <text>证书编号</text>
+    </view>
+    <view class="right"> {{model.newcertificateno?model.newcertificateno:'无'}} </view>
+  </view>
+  <view class="hr3"></view>
+
+  <view class="part1">
+    <view class="left">
+      <image class="image" src="/images/icon_cd_qr.png"></image>
+      <text>条形编码</text>
+    </view>
+    <view class="right">{{model.musterno?model.musterno:'无'}}</view>
+  </view>
+  <view class="hr3"></view>
+
+  <view class="part1">
+    <view class="left">
+      <image class="image" src="/images/icon_cd_cost.png"></image>
+      <text>参考费用</text>
+    </view>
+    <view class="right">{{model.orderPrice?model.orderPrice:'0'}}元</view>
+  </view>
+  <view class="hr5">样品信息</view>
+
+  <view class="part1">
+    <view class="left">
+      <image class="image" src="/images/icon_cd_number.png"></image>
+      <text>款号</text>
+    </view>
+    <view data-text="{{model.noOne?model.noOne:'无'}}" catchtap="show_name" class="right">{{model.noOne?model.noOne:'无'}}</view>
+  </view>
+  <view class="hr3"></view>
+
+  <view class="part1">
+    <view class="left">
+      <image class="image" src="/images/icon_cd_date.png"></image>
+      <text>收样日期</text>
+    </view>
+    <view class="right">{{model.receiveDate?model.receiveDate:'无'}}</view>
+  </view>
+  <view class="hr3"></view>
+  <view class="part1">
+    <view class="left">
+      <image class="image" src="/images/icon_cd_name.png"></image>
+      <text>项目名称</text>
+    </view>
+    <view data-text="{{model.projectname?model.projectname:'无'}}" catchtap="show_name" class="right">{{model.projectname?model.projectname:'无'}}</view>
+  </view>
+  <view class="hr3"></view>
+  <view class="part1">
+    <view class="left">
+      <image class="image" src="/images/icon_cd_color.png"></image>
+      <text>色号</text>
+    </view>
+    <view data-text="{{model.noTwo?model.noTwo:'无'}}" catchtap="show_name" class="right">{{model.noTwo?model.noTwo:'无'}}</view>
+  </view>
+  <view class="hr3"></view>
+  <view class="part1">
+    <view class="left">
+      <image class="image" src="/images/icon_cd_color2.png"></image>
+      <text>颜色</text>
+    </view>
+    <view data-text="{{model.musterDs?model.musterDs:'无'}}" catchtap="show_name" class="right">{{model.musterDs?model.musterDs:'无'}}</view>
+  </view>
+  <view class="hr5">委托信息</view>
+  <view class="part1">
+    <view class="left">
+      <image class="image" src="/images/icon_build.png"></image>
+      <text>委托单位</text>
+    </view>
+    <view data-text="{{model.customName?model.customName:'无'}}" catchtap="show_name" class="right">{{model.customName?model.customName:'无'}}</view>
+  </view>
+  <view class="hr3"></view>
+  <view class="part1">
+    <view class="left">
+      <image class="image" src="/images/icon_cd_bulide2.png"></image>
+      <text>制造单位</text>
+    </view>
+    <view data-text="{{model.producer?model.producer:'无'}}" catchtap="show_name" class="right">{{model.producer?model.producer:'无'}}</view>
+  </view>
+  <view class="hr3"></view>
+  <view class="part1">
+    <view class="left">
+      <image class="image" src="/images/icon_cd_sign.png"></image>
+      <text>商标</text>
+    </view>
+    <view class="right">{{model.brandName?model.brandName:'无'}}</view>
+  </view>
+  <view class="hr3"></view>
+  <view class="part1">
+    <view class="left">
+      <image class="image" src="/images/icon_username.png"></image>
+      <text>联系人</text>
+    </view>
+    <view data-text="{{model.linkmanname?model.linkmanname:'无'}}" catchtap="show_name" class="right">{{model.linkmanname?model.linkmanname:'无'}}</view>
+  </view>
+
+</view>
+
+
+<import src="/utils/model.wxml" />
+<template is="model1" data='{{showModel1}}' />

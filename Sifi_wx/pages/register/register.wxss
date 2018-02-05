@@ -1,0 +1,49 @@
+/* pages/bind/bing.wxss */
+
+.head {
+  width: 720rpx;
+  height: 150rpx;
+  display: flex;
+  flex-direction: row;
+  margin: 20rpx 0;
+  justify-content: center;
+}
+
+.head .image {
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 50%;
+}
+
+.part1 {
+  width: 700rpx;
+  height: 50rpx;
+  margin: 25rpx 25rpx;
+  display: flex;
+  flex-direction: row;
+  font-size: 35rpx;
+  align-items: center;
+
+}
+
+.part1 .image {
+  width: 50rpx;
+  height: 50rpx;
+  margin: 0 25rpx;
+}
+
+.input1 {
+   font-size: 35rpx;
+  margin-left: 25rpx;
+  width: 450rpx;
+  height:50rpx;
+}
+.part2{
+  width:650rpx;
+  display:flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin:50rpx 50rpx 0 50rpx;
+  color: #8a8a8a;
+  font-size:25rpx;
+}

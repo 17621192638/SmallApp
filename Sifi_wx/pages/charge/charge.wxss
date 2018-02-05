@@ -1,0 +1,185 @@
+/* pages/charge/charge.wxss */
+
+.head {
+  width: 750rpx;
+  height: 90rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.head .image {
+  width: 60rpx;
+  height: 60rpx;
+  margin: 0 15rpx;
+}
+
+.head .image2 {
+  width: 30rpx;
+  height: 30rpx;
+  margin-left: 5rpx;
+}
+
+.head_part1 {
+  text-align: center;
+  width: 120rpx;
+  height: 50rpx;
+  color: #707070;
+  font-size: 35rpx;
+  line-height: 50rpx;
+}
+
+.head_part2 {
+  width: 385rpx;
+  height: 50rpx;
+  color: #707070;
+  font-size: 30rpx;
+  line-height: 50rpx;
+  font-weight:bold;
+  display: flex;
+  flex-direction: row;
+  align-items:center;
+  justify-content: space-around;
+  margin-right:15rpx;
+}
+
+.head_part3 {
+
+  width: 136rpx;
+  height: 50rpx;
+}
+.head_part3_part1 {
+  width: 136rpx;
+  height: 50rpx;
+  color: #707070;
+  font-size: 30rpx;
+  line-height: 50rpx;
+  display:flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+/*............body.............  */
+
+.body {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  background:white;
+
+}
+
+.left {
+  width: 110rpx;
+  height: 1320rpx;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.left_block {
+width:100rpx;
+height:65rpx;
+line-height:65rpx;
+margin-top:20rpx;
+font-size:22rpx;
+background-color:#707070 ;
+text-align:center;
+color:white;
+
+}
+
+.right {
+  width: 620rpx;
+  height: 1320rpx;
+}
+
+.right_part1 {
+  width:600rpx;
+  margin-left:20rpx;
+  height: 90rpx;
+  line-height: 90rpx;
+  font-size: 35rpx;  
+}
+
+.right_part2 {
+  width:620rpx;
+  height: 310rpx;
+  display:flex;
+  flex-direction:row;
+}
+.right_part2_left {
+  width:310rpx;
+  height: 310rpx;
+}
+
+.right_part2_right {
+width:308rpx;
+height:210rpx;
+margin:50rpx 0;
+position:relative;
+}
+.right_part2_right .part{
+  width:308rpx;
+  height:55rpx;
+  display:flex;
+  flex-direction: row;
+  align-items: center;
+}
+.right_part2_right .part .part1{
+width:30rpx;
+height:30rpx;
+border-radius:50%;
+margin:0 10rpx;
+
+}
+.right_part2_right .part .part2{
+font-size:25rpx;
+color:#707070;
+width:120rpx;
+}
+.right_part2_right .part .part3{
+  width:115rpx;
+  text-align:right;
+  font-size:25rpx;
+  color:black;
+ 
+}
+.right_part10 {
+  width: 310rpx;
+  height: 310rpx;
+}
+.lineChart{
+  width: 620rpx;
+  height: 310rpx;
+}
+.right_part3 {
+padding:20rpx 25rpx 20rpx  45rpx;
+width:550rpx;
+height:45rpx;
+display:flex;
+flex-direction:row;
+font-size:35rpx;
+justify-content:space-between;
+
+}
+
+ .right_part3_left {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.right_part3_right {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: #F29F3F;
+font-size:28rpx;
+font-weight:bold;
+
+}
+

@@ -1,0 +1,296 @@
+/**app.wxss**/
+
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* 分割线样式 */
+
+.hr1 {
+  width: 100%;
+  height: 20rpx;
+  background-color: #e5e3e6;
+}
+
+.hr2 {
+  width: 700rpx;
+  height: 2rpx;
+  background-color: #e5e3e6;
+  margin: 20prx 25rpx;
+}
+
+.hr3 {
+  width: 725rpx;
+  height: 2rpx;
+  background-color: #e5e3e6;
+  margin-left: 25rpx;
+}
+
+.hr4 {
+  width: 650rpx;
+  height: 2rpx;
+  background-color: #e5e3e6;
+  margin: 20prx 50rpx;
+}
+
+.hr5 {
+  width: 700rpx;
+  height: 50rpx;
+  background-color: #399de6;
+  padding: 0 26rpx;
+  font-size: 30rpx;
+  color: white;
+  line-height: 50rpx;
+}
+
+.hr6 {
+  width: 750rpx;
+  height: 2rpx;
+  background-color: #e5e3e6;
+}
+
+.hr7 {
+  width: 580rpx;
+  height: 2rpx;
+  background-color: #e5e3e6;
+  margin-left: 40rpx;
+}
+
+.hr8 {
+  width: 100%;
+  height: 20rpx;
+  background-color: #f3f3f3;
+  margin: 0;
+}
+.hr9{
+  width:680rpx;
+  background-color: #399de6;
+  height:10rpx;
+}
+/* 垂直分割线 */
+
+.vl1 {
+  width: 3rpx;
+  height: 40rpx;
+  background-color: #e5e3e6;
+}
+
+.vl2 {
+  width: 20rpx;
+  height: 1320rpx;
+  background-color: #f3f3f3;
+}
+
+.vl3 {
+  width: 2rpx;
+  height: 310rpx;
+  background-color: #e5e3e6;
+}
+
+/* 标签样式 */
+
+.tag {
+  width: 150rpx;
+  height: 35rpx;
+  background-color: #ffebcc;
+  border: 2rpx solid #ffb86c;
+  border-radius: 10%;
+  text-align: center;
+  line-height: 35rpx;
+  color: #ffb86c;
+  font-size: 25rpx;
+}
+
+/*认证标签 */
+
+.tag2 {
+  margin-left: 15rpx;
+  width: 100rpx;
+  height: 35rpx;
+  background-color: #ffebcc;
+  border: 2rpx solid #ffb86c;
+  border-radius: 10%;
+  text-align: center;
+  line-height: 35rpx;
+  color: #ffb86c;
+  font-size: 25rpx;
+}
+
+/* 游客 */
+
+.tag3 {
+  margin-left: 15rpx;
+  width: 100rpx;
+  height: 35rpx;
+  background-color: #d0e9ff;
+  border: 2rpx solid #1db0b8;
+  border-radius: 10%;
+  text-align: center;
+  line-height: 35rpx;
+  color: #1db0b8;
+  font-size: 25rpx;
+}
+
+.tag4 {
+  width: 120rpx;
+  height: 60rpx;
+  border: 8rpx solid #ffb86c;
+  border-radius: 10%;
+  text-align: center;
+  line-height: 60rpx;
+  font-size: 40rpx;
+  color: #ffb86c;
+}
+/* 置顶 */
+.tag5 {
+width:70rpx;
+height:30rpx;
+border:2rpx solid red;
+border-radius:8rpx;
+text-align:center;
+color:red;
+font-size:25rpx;
+line-height:30rpx;
+
+
+}
+
+/*------------------------------  */
+
+/* 按钮样式  */
+
+.button1 {
+  width: 100%;
+  height: 80rpx;
+  line-height: 80rpx;
+}
+
+/*字体样式 */
+
+.font1 {
+  color: #cdcdcd;
+  font-size: 25rpx;
+}
+
+/*自定义模态框样式  */
+
+.newModel {
+  font-size: 37rpx;
+}
+
+.mask {
+  width: 100%;
+  height: 100%;
+  z-index: 200;
+  opacity: 0.5;
+  position: fixed;
+  background: #000;
+  top: 0;
+  left: 0;
+}
+
+.model1 {
+  position: fixed;
+  background: white;
+  width: 600rpx;
+  z-index: 250;
+  left: 75rpx;
+  top: 50%;
+  margin-top: -337rpx;
+}
+
+.model_head {
+  margin-top: 30rpx;
+  color: #000;
+  height: 60rpx;
+  border-bottom: 3rpx solid #f1f1f1;
+  text-align: center;
+}
+
+.model_content {
+  width: 500rpx;
+  padding: 10rpx 50rpx;
+  font-size: 30rpx;
+  color: #aaa;
+  border-bottom: 3rpx solid #f1f1f1;
+}
+
+.model1 .part2 {
+  font-size: 30rpx;
+  margin: 10rpx 50rpx;
+  color: #aaa;
+}
+
+.model_footer {
+  height: 90rpx;
+  width: 100%;
+  margin-top: 10rpx;
+  border-top: 3rpx solid #f1f1f1;
+  display: flex;
+  flex-direction: row;
+}
+
+.newModel .button_ok {
+  width: 299rpx;
+  line-height: 90rpx;
+  text-align: center;
+  color: #1aac19;
+}
+
+.button_ok:active {
+  background-color: #f1f1f1;
+}
+
+.newModel .button_cancel {
+  width: 298rpx;
+  border-right: 3rpx solid #f1f1f1;
+  line-height: 90rpx;
+  text-align: center;
+}
+
+.button_cancel:active {
+  background-color: #f1f1f1;
+}
+
+.model2 {
+  position: fixed;
+  background: white;
+  width: 600rpx;
+  z-index: 250;
+  left: 75rpx;
+  top: 33%;
+  margin-top: -147rpx;
+}
+
+.model2_head {
+  margin-top: 10rpx;
+  color: #000;
+  height: 90rpx;
+  border-bottom: 3rpx solid #f1f1f1;
+  text-align: center;
+}
+
+.model2 .image {
+  width: 80rpx;
+  height: 80rpx;
+}
+
+.model2 .content {
+  height: 100rpx;
+  text-align: center;
+  width: 500rpx;
+  margin: 0 50rpx 0 100rpx;
+  line-height: 100rpx;
+  color: #8a8a8a;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.model2 .input {
+  width: 200rpx;
+  margin-left: 20rpx;
+}

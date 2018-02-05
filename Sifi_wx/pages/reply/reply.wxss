@@ -1,0 +1,44 @@
+/* pages/reply/reply.wxss */
+page{
+  background-color:#f2f2f2;
+}
+
+.info{
+  border:3rpx solid #d6d6d6;
+ width: 700rpx;
+  height: 80rpx;
+  margin: 15rpx 0;
+  background-color: white;
+  border-radius: 15rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 35rpx;
+  color: #8a8a8a;
+}
+.font{
+  font-size: 35rpx;
+  color:black;
+  margin:25rpx 0;
+  text-align: left;
+}
+.info .image{
+  margin: 0 20rpx;
+  width: 45rpx;
+  height: 45rpx;
+}
+.area{
+  padding:20rpx;
+  width:660rpx;
+  height:470rpx;
+  
+}
+.cursor{
+position:relative;
+color:#8a8a8a;
+left:280rpx;
+top:-10rpx;
+z-index:89;
+
+
+}

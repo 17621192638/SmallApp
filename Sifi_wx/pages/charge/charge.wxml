@@ -1,0 +1,339 @@
+<view class="container">
+  <view class="head">
+    <view class="head_part1">日期</view>
+    <view class="vl1"></view>
+
+    <picker style="margin-top:10rpx" bindchange="dateChange" range="{{checkDate}}">
+      <image class="image" src="/images/clock.png"></image>
+    </picker>
+
+    <view class="head_part2">
+      <picker mode="date" value="{{bTime}}" start="{{startTime}}" end="{{currentTime}}" bindchange="bTimeChange">
+        {{bTime}}
+      </picker>
+      <view style="font-size:35rpx"> ~ </view>
+      <picker mode="date" value="{{eTime}}" start="{{startTime}}" end="{{currentTime}}" bindchange="eTimeChange">
+        {{eTime}}
+      </picker>
+    </view>
+    <view class="vl1"></view>
+    <picker class="head_part3" bindchange="checkTypeChange" value="{{checkTypeIndex}}" range="{{checkTypeArray}}">
+      <view class="head_part3_part1">
+        <view> {{checkTypeArray[checkTypeIndex]}} </view>
+        <image class="image2" src="/images/down.png"></image>
+      </view>
+    </picker>
+  </view>
+  <view class="hr1" style="background-color:#f3f3f3"></view>
+  <block wx:if="{{feeList.length}}">
+    <view class="body">
+      <view class="left">
+        <view catchtap='TongjiClick' style="background-color:{{showTongji?'red':''}}" class="left_block">统计汇总</view>
+        <block wx:key="feelist" wx:for="{{feeList}}" wx:for-index="idx">
+          <view catchtap='modelChange' data-index="{{idx}}" class="left_block" style="background-color:{{showColor==idx?'red':''}}">{{item.receivedate}}</view>
+        </block>
+      </view>
+    
+
+      <block wx:if="{{showTongji==false}}">
+        <view class="vl2"></view>
+        <view class="right">
+          <view class="right_part1">证书收费占比分析图</view>
+          <view class="hr2" style="width:620rpx;margin:0"></view>
+          <view class="right_part2">
+            <view class="right_part2_left">
+              <canvas canvas-id="ringCanvas" disable-scroll="true" class="right_part10"></canvas>
+            </view>
+            <view class="vl3"></view>
+            <view class="right_part2_right">
+              <view class="part">
+                <view class="part1" style="background-color:#2ecc71">
+                </view>
+                <view class="part2">
+                  到账率
+                </view>
+                <view class="part3">
+                  {{model.allInRate?model.allInRate:'0.000%'}}
+                </view>
+              </view>
+              <view class="part">
+                <view class="part1" style="background-color:#3498db">
+                </view>
+                <view class="part2">
+                  已开票率
+                </view>
+                <view class="part3">
+                  {{model.invoicedRate?model.invoicedRate:'0.000%'}}
+                </view>
+              </view>
+              <view class="part">
+                <view class="part1" style="background-color:#e74c3c">
+                </view>
+                <view class="part2">
+                  未开票率
+                </view>
+                <view class="part3">
+                  {{model.noInvoiceRate?model.noInvoiceRate:'0.000%'}}
+                </view>
+              </view>
+              <view class="part">
+                <view class="part1" style="background-color:#f39c12">
+                </view>
+                <view class="part2">
+                  无收费单率
+                </view>
+                <view class="part3">
+                  {{model.noOrderRate?model.noOrderRate:'0.000%'}}
+                </view>
+              </view>
+            </view>
+          </view>
+          <view class="hr8"></view>
+          <view class="right_part3">
+            <view class="right_part3_left">
+              <text>检验批</text>
+            </view>
+            <view class="right_part3_right">
+              {{model.totalCount?model.totalCount:0}} 批次
+            </view>
+          </view>
+          <view class="hr7"></view>
+          <view class="right_part3">
+            <view class="right_part3_left">
+              <text>检验费</text>
+            </view>
+            <view class="right_part3_right">
+              {{model.totalMoney?model.totalMoney:'0.000'}} 元
+            </view>
+          </view>
+          <view class="hr7"></view>
+          <view class="right_part3">
+            <view class="right_part3_left">
+              <text>加打费</text>
+            </view>
+            <view class="right_part3_right">
+              {{model.printPay?model.printPay:'0.000'}} 元
+            </view>
+          </view>
+          <view class="hr7"></view>
+          <view class="right_part3">
+            <view class="right_part3_left">
+              <text>合计收费</text>
+            </view>
+            <view class="right_part3_right">
+              {{totalList[showColor]}} 元
+            </view>
+          </view>
+          <view class="hr8"></view>
+          <view class="right_part3">
+            <view class="right_part3_left">
+              <text>到账</text>
+            </view>
+            <view class="right_part3_right">
+              {{model.allInMoney?model.allInMoney:'0.000'}} 元
+            </view>
+          </view>
+          <view class="hr7"></view>
+          <view class="right_part3">
+            <view class="right_part3_left">
+              <text>已开票</text>
+            </view>
+            <view class="right_part3_right">
+              {{model.invoicedMoney?model.invoicedMoney:'0.000'}} 元
+            </view>
+          </view>
+          <view class="hr7"></view>
+          <view class="right_part3">
+            <view class="right_part3_left">
+              <text>未开票</text>
+            </view>
+            <view class="right_part3_right">
+              {{model.noInvoiceMoney?model.noInvoiceMoney:'0.000'}} 元
+            </view>
+          </view>
+          <view class="hr7"></view>
+          <view class="right_part3">
+            <view class="right_part3_left">
+              <text>无收费单</text>
+            </view>
+            <view class="right_part3_right">
+              {{model.noOrderMoney?model.noOrderMoney:'0.000'}} 元
+            </view>
+          </view>
+          <view class="hr8"></view>
+          <view class="right_part3">
+            <view class="right_part3_left">
+              <text>撤报</text>
+            </view>
+            <view class="right_part3_right">
+              {{model.cancelCert?model.cancelCert:0}} 批
+            </view>
+          </view>
+          <view class="hr7"></view>
+          <view class="right_part3">
+            <view class="right_part3_left">
+              <text>撤报率</text>
+            </view>
+            <view class="right_part3_right">
+              {{model.cancelRate?model.cancelRate:'0.000%'}}
+            </view>
+          </view>
+        </view>
+      </block>
+      <block wx:else>
+        <view class="vl2" style="height:1740rpx"></view>
+        <view class="right">
+          <view class="right_part1">证书收费汇总折线图</view>
+          <view class="hr2" style="width:620rpx;margin:0"></view>
+          <view class="right_part2">
+            <view  class="right_part2_left">
+              <canvas canvas-id="lineCanvas" disable-scroll="true" class="lineChart" bindtouchstart="touchHandler" bindtouchmove="moveHandler" bindtouchend="touchEndHandler"></canvas>
+            </view>
+          </view>
+          <view class="hr8"></view>
+          <view class="right_part1">证书收费汇总占比分析图</view>
+          <view class="hr2" style="width:620rpx;margin:0"></view>
+          <view class="right_part2">
+            <view class="right_part2_left">
+              <canvas canvas-id="ringCanvas" disable-scroll="true" class="right_part10"></canvas>
+            </view>
+            <view class="vl3"></view>
+            <view class="right_part2_right">
+              <view class="part">
+                <view class="part1" style="background-color:#2ecc71">
+                </view>
+                <view class="part2">
+                  到账率
+                </view>
+                <view class="part3">
+                  {{totalModel.allInRate?totalModel.allInRate:'0.000%'}}
+                </view>
+              </view>
+              <view class="part">
+                <view class="part1" style="background-color:#3498db">
+                </view>
+                <view class="part2">
+                  已开票率
+                </view>
+                <view class="part3">
+                  {{totalModel.invoicedRate?totalModel.invoicedRate:'0.000%'}}
+                </view>
+              </view>
+              <view class="part">
+                <view class="part1" style="background-color:#e74c3c">
+                </view>
+                <view class="part2">
+                  未开票率
+                </view>
+                <view class="part3">
+                  {{totalModel.noInvoiceRate?totalModel.noInvoiceRate:'0.000%'}}
+                </view>
+              </view>
+              <view class="part">
+                <view class="part1" style="background-color:#f39c12">
+                </view>
+                <view class="part2">
+                  无收费单率
+                </view>
+                <view class="part3">
+                  {{totalModel.noOrderRate?totalModel.noOrderRate:'0.000%'}}
+                </view>
+              </view>
+            </view>
+          </view>
+          <view class="hr8"></view>
+          <view class="right_part3">
+            <view class="right_part3_left">
+              <text>检验批</text>
+            </view>
+            <view class="right_part3_right">
+              {{totalModel.totalCount?totalModel.totalCount:0}} 批次
+            </view>
+          </view>
+          <view class="hr7"></view>
+          <view class="right_part3">
+            <view class="right_part3_left">
+              <text>检验费</text>
+            </view>
+            <view class="right_part3_right">
+              {{totalModel.totalMoney?totalModel.totalMoney:'0.000'}} 元
+            </view>
+          </view>
+          <view class="hr7"></view>
+          <view class="right_part3">
+            <view class="right_part3_left">
+              <text>加打费</text>
+            </view>
+            <view class="right_part3_right">
+              {{totalModel.printPay?totalModel.printPay:'0.000'}} 元
+            </view>
+          </view>
+          <view class="hr7"></view>
+          <view class="right_part3">
+            <view class="right_part3_left">
+              <text>合计收费</text>
+            </view>
+            <view class="right_part3_right">
+              {{totalModel.receivedate}} 元
+            </view>
+          </view>
+          <view class="hr8"></view>
+          <view class="right_part3">
+            <view class="right_part3_left">
+              <text>到账</text>
+            </view>
+            <view class="right_part3_right">
+              {{totalModel.allInMoney?totalModel.allInMoney:'0.000'}} 元
+            </view>
+          </view>
+          <view class="hr7"></view>
+          <view class="right_part3">
+            <view class="right_part3_left">
+              <text>已开票</text>
+            </view>
+            <view class="right_part3_right">
+              {{totalModel.invoicedMoney?totalModel.invoicedMoney:'0.000'}} 元
+            </view>
+          </view>
+          <view class="hr7"></view>
+          <view class="right_part3">
+            <view class="right_part3_left">
+              <text>未开票</text>
+            </view>
+            <view class="right_part3_right">
+              {{totalModel.noInvoiceMoney?totalModel.noInvoiceMoney:'0.000'}} 元
+            </view>
+          </view>
+          <view class="hr7"></view>
+          <view class="right_part3">
+            <view class="right_part3_left">
+              <text>无收费单</text>
+            </view>
+            <view class="right_part3_right">
+              {{totalModel.noOrderMoney?totalModel.noOrderMoney:'0.000'}} 元
+            </view>
+          </view>
+          <view class="hr8"></view>
+          <view class="right_part3">
+            <view class="right_part3_left">
+              <text>撤报</text>
+            </view>
+            <view class="right_part3_right">
+              {{totalModel.cancelCert?totalModel.cancelCert:0}} 批
+            </view>
+          </view>
+          <view class="hr7"></view>
+          <view class="right_part3">
+            <view class="right_part3_left">
+              <text>撤报率</text>
+            </view>
+            <view class="right_part3_right">
+              {{totalModel.cancelRate?totalModel.cancelRate:'0.000%'}}
+            </view>
+          </view>
+        </view>
+      </block>
+
+    </view>
+  </block>
+</view>

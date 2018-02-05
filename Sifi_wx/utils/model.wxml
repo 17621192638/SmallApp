@@ -1,0 +1,44 @@
+<template name="model1">
+  <view class="newModel" wx:if="{{showModel1}}">
+    <view class="mask"></view>
+    <view class="model1">
+      <view class="model_head">系统提示</view>
+      <view class="model_content">
+        <view>系统检测到您当前的网络环境为非WIFI环境,每次扫描并打开证书都将花费一定网络流量,具体如下:</view>
+        <view>* 大部分证书(1-3页),大约200KB/份下载流量</view>
+        <view>* 大证书(10页以上),大约500KB/份下载流量</view>
+        <view>* 带图片证书,大约1-2MB/份下载流量</view>
+        建议您在wifi环境下进行频繁操作,是否继续?
+
+      </view>
+      <checkbox-group class="part2" bindchange="checkboxChange">
+        <checkbox value="check" />不再提示此消息
+      </checkbox-group>
+      <view class="model_footer">
+        <view catchtap="modelCancel" class="button_cancel">取消</view>
+        <view catchtap="modelOk" class="button_ok">继续</view>
+      </view>
+    </view>
+  </view>
+</template>
+
+<template name="model2">
+  <view class="newModel" wx:if="{{showModel1}}">
+    <view class="mask"></view>
+    <view class="model2">
+      <view class="model2_head">
+        <image class="image" src="/images/icon_username.png"></image>
+      </view>
+      <view class="content">
+        输入页码:
+
+        <input bindinput="inputChange" focus="true" maxlength="8" class="input" confirm-type="done" type="number" value="{{pageNum}}" />
+
+      </view>
+      <view class="model_footer" style="margin-top:0">
+        <view catchtap="modelCancel" class="button_cancel">取消</view>
+        <view catchtap="modelOk" class="button_ok">确定</view>
+      </view>
+    </view>
+  </view>
+</template>

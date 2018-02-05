@@ -1,0 +1,50 @@
+@import "../wxParse/wxParse.wxss";
+
+.head {
+  width: 680rpx;
+  margin: 20rpx 35rpx 0 35rpx;
+}
+
+.head .title {
+  text-align: center;
+  margin-top: 10px;
+  width: 680rpx;
+  font-size: 45rpx;
+}
+
+.content {
+  color: #333;
+  width: 680rpx;
+  margin: 15rpx 35rpx 0 35rpx;
+}
+
+.tabs {
+  color: white;
+  width: 600rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 25rpx 40rpx;
+  font-size: 25rpx;
+}
+
+.tab1 {
+  height: 40rpx;
+  line-height: 40rpx;
+  background-color: #393d49;
+  padding: 0 10rpx;
+}
+
+.tab2 {
+  height: 40rpx;
+  line-height: 40rpx;
+  background-color: #c00;
+  padding: 0 10rpx;
+}
+
+.tab3 {
+  height: 40rpx;
+  line-height: 40rpx;
+  background-color: #999;
+  padding: 0 10rpx;
+}

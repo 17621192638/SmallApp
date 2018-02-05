@@ -1,0 +1,76 @@
+<!--pages/introduce/introduce.wxml-->
+
+<view class="container">
+
+  <view>
+    <image class="image_head" src="/images/sqi.png"></image>
+  </view>
+  <view class="part1">
+    <view class="head">
+      <view style="font-size:50rpx;">上海市质检院纤维检验所</view>
+      <view style="font-size:30rpx;margin-top:10rpx;">Shanghai Institute of Quality Inspection and Technical Research Institute Of Fibre Inspection</view>
+    </view>
+    <view class="hr2" style="margin-top:10rpx"></view>
+    <view class="message">
+      <view bindtap='getMap' class="son" style="border-right:2rpx solid #e5e3e6">
+        <image src="/images/map.png" class="image"></image>
+        <text style="margin-left:10rpx">上海市长乐路1228号</text>
+      </view>
+      <view class="son" style=" justify-content:center">
+        <image src="/images/tel.png" class="image"></image>
+        <text bindtap='getCall' style="margin-left:10rpx">021-62481029 </text>
+      </view>
+    </view>
+  </view>
+  <view class='hr1'></view>
+  <view class='part2'>
+    <view class="title">
+      工作时间
+    </view>
+    <view class="time">
+      <view class="tag">
+        周一至周五
+      </view>
+      <view class="tag" style="width:220rpx">
+        夏令时 8:30-17:00
+      </view>
+      <view class="tag" style="width:220rpx">
+        冬令时 8:30-16:30
+      </view>
+    </view>
+    <view class="title">
+      历史背景
+    </view>
+    <view class="content">
+      纤维检验所隶属于上海市质量监督检验技术研究院(SQI),是上海市人民政府依法设置的非营利性公益科研类政府实验室。从1949年11月1日建立开始，距今已有近70年专业检测历史。
+    </view>
+    <view class="title">
+      主营业务
+    </view>
+    <view class="content">
+      纤维检验所主要承担棉、麻、毛、茧丝、化纤等纺织纤维及其制品、絮用纤维制品和服装产品的监督检验、仲裁检验、委托检验；承担有关纤维及制品检验标准的制修订；开展纤维及其制品质量检验技术、检验方法和检验仪器的研究；为纺织纤维及其制品的生产、销售用户提供技术服务和信息咨询；受上海市政府委托，负责本市学生校服质量安全检测。
+    </view>
+    <view class="title">
+      职能部门
+    </view>
+    <view class="content">
+      纤维检验所内设机构为检测一室、检测二室、检测三室、检测四室、市场业务科、科技质量科、综合办公室等7个部门，分别承担着监督、检验、管理、服务等职能。
+    </view>
+    <view class="title">
+      业务范围
+    </view>
+    <view class="content">
+      纤维检验所检测业务范围有：棉纤维、毛绒纤维、化学纤维等纤维类产品检验；纺织服装产品检验；生态纺织品检验；羽绒羽毛及其制品检验；皮鞋/毛皮及其制品检验；箱包、鞋类检验；棉花实物标样制作等，检测能力标准达924项。
+    </view>
+    <view class="title">
+      国际水平
+    </view>
+    <view class="content">
+      纤维检验所承担国际标准化组织天然纤维素纤维工作组(ISO/TC38/SC23/WG2 )工作，参与制修订ISO/国家/行业标准、承担各类科研项目、多次参加国家技术机构交流合作，获得多次标准化、检测技术等奖项，专业水平得到国际认可。
+    </view>
+  </view>
+
+
+
+
+</view>

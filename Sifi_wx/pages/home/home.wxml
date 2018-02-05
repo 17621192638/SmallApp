@@ -1,0 +1,148 @@
+<!--pages/home/home.wxml-->
+<wxs module="filter" src="../../utils/filter.wxs">
+</wxs>
+<block wx:if="{{!openid}}">
+  <view class="loading">
+    <image class="sqi" src="/images/sqi2.png"></image>
+
+    <image class="image" src="/images/loading.gif"></image>
+
+  </view>
+</block>
+<view wx:else class="container">
+  <view class="head">
+    <image class="image" src="/images/home_head.png"></image>
+    <view class="content">
+      聆听质检声音 微信快捷查验
+    </view>
+  </view>
+  <view class="application_list">
+    <view class="application">
+      <image catchtap="checkNet" class="image" src="/images/app_QRcode.png"></image>
+      扫一扫
+    </view>
+    <view class="application">
+      <image class="image" catchtap="show_search" src="/images/app_search.png"></image>
+      证书查询
+    </view>
+    <!-- <view catchtap="show_building" class="application">
+      <image  class="image" src="/images/app_cube.png"></image>
+      在线报验
+    </view>
+    <view catchtap="show_building"  class="application">
+      <image class="image" src="/images/app_book.png"></image>
+      我的清单
+    </view>  -->
+    <block wx:if="{{userType=='超级管理员'}}">
+      <view class="application">
+        <image class="image" catchtap="show_charge" src="/images/app_book.png"></image>
+        收费详情
+      </view>
+    </block>
+
+  </view>
+  <view class="hr1"></view>
+  <view class="sifi">
+    <image class="image" src="/images/sifi1.png"></image>
+    <text bindtap='show_introduce'>上海市质检院纤维检验所</text>
+    <image class="image2" bindtap='show_introduce' src="/images/right.png"></image>
+  </view>
+  <view class="hr1"></view>
+  <view class="newsHead">
+    <view class="newsHead_left">新闻头条</view>
+    <view class="newsHead_right">
+      <view class="newsHead_title {{newsData.menuid==301?'title_click':''}}" catchtap="changeNewsType" data-menuid="301">综合新闻</view>
+      <view class="newsHead_title {{newsData.menuid==401?'title_click':''}}" catchtap="changeNewsType" data-menuid="401">科研成果</view>
+       <view class="newsHead_title {{newsData.menuid==904?'title_click':''}}" catchtap="changeNewsType" data-menuid="904">科普知识</view>
+    </view>
+  </view>
+  <view class="hr1" style="height:3rpx;"></view>
+
+  <!-- 新闻部分 -->
+  <view style="min-height:{{newsData.showNews=='fail'?'':'1000rpx'}}">
+    <block wx:for="{{newsData.list}}" wx:for-index="idx" wx:key="newsList">
+      <block wx:if="{{filter.imgSize(item.imgurl)==0}}">
+        <view class="newsType" data-id="{{idx}}" catchtap="showNewsDetail">
+          <text>{{item.title}}</text>
+          <view class="newsType_foot">
+            <block wx:if="{{item.istop==1}}">
+              <view class="tag5">置顶</view>
+              <text style="margin-left:15rpx">纤检所</text>
+            </block>
+            <block wx:else>
+              <text>纤检所</text>
+            </block>
+            <text style="margin-left:15rpx">{{item.readcount}}查看</text>
+            <text style="margin-left:15rpx">{{filter.formatTime1(item.creattime)}}</text>
+          </view>
+        </view>
+      </block>
+      <block wx:if="{{filter.imgSize(item.imgurl)==1}}">
+        <view class="newsType" data-id="{{idx}}" catchtap="showNewsDetail">
+          <view class="newsType2">
+            <view class="newsType2_left">
+              <text>{{item.title}}</text>
+              <view class="newsType_foot">
+                <block wx:if="{{item.istop==1}}">
+                  <view class="tag5">置顶</view>
+                  <text style="margin-left:15rpx">纤检所</text>
+                </block>
+                <block wx:else>
+                  <text>纤检所</text>
+                </block>
+                <text style="margin-left:15rpx">{{item.readcount}}查看</text>
+                <text style="margin-left:15rpx">{{filter.formatTime1(item.creattime)}}</text>
+              </view>
+            </view>
+            <view class="newsType2_right">
+              <image class="image" src="{{filter.checkImgUrl(item.imgurl,0)}}"></image>
+            </view>
+          </view>
+        </view>
+      </block>
+      <block wx:if="{{filter.imgSize(item.imgurl)==2}}">
+        <view class="newsType" data-id="{{idx}}" catchtap="showNewsDetail">
+          <text>{{item.title}}</text>
+          <view class="newsType3">
+            <image class="image" src="{{filter.checkImgUrl(item.imgurl,0)}}"></image>
+            <image class="image" src="{{filter.checkImgUrl(item.imgurl,1)}}"></image>
+            <image class="image" src="{{filter.checkImgUrl(item.imgurl,2)}}"></image>
+          </view>
+          <view class="newsType_foot">
+            <block wx:if="{{item.istop==1}}">
+              <view class="tag5">置顶</view>
+              <text style="margin-left:15rpx">纤检所</text>
+            </block>
+            <block wx:else>
+              <text>纤检所</text>
+            </block>
+            <text style="margin-left:15rpx">{{item.readcount}}查看</text>
+            <text style="margin-left:15rpx">{{filter.formatTime1(item.creattime)}}</text>
+          </view>
+        </view>
+
+      </block>
+      <view class="hr2"></view>
+    </block>
+    <view class="news_footer">
+      <block wx:if="{{newsData.hasNext}}">
+        <block wx:if="{{newsData.showNews=='loading'}}">
+          <image class="image" src="/images/loading2.gif"></image>
+          <text style="margin-left:20rpx">新闻加载中</text>
+        </block>
+        <block wx:if="{{newsData.showNews=='fail'}}">
+          <text style="margin-left:20rpx">新闻加载失败</text>
+        </block>
+        <block wx:if="{{newsData.showNews=='success'}}">
+          <text style="margin-left:20rpx">上拉加载更多新闻</text>
+        </block>
+      </block>
+      <block wx:else>
+        <text style="margin-left:20rpx">新闻内容已全部加载完毕</text>
+      </block>
+    </view>
+  </view>
+</view>
+<!-- 弹出层 -->
+<import src="/utils/model.wxml" />
+<template is="model1" data='{{showModel1}}' />

@@ -1,0 +1,41 @@
+{
+  "pages": [
+    "pages/home/home",
+    "pages/index/index",
+    "pages/introduce/introduce",
+    "pages/user/user",
+    "pages/bind/bind",
+    "pages/register/register",
+    "pages/apply_search/apply_search",
+    "pages/apply_search_detail/apply_search_detail",
+    "pages/power/power",
+    "pages/reply/reply",
+    "pages/charge/charge",
+    "pages/news_detail/news_detail"
+  ],
+  "window": {
+    "navigationBarTitleText": "上海市质检院纤维检验所(SIFI)",
+    "navigationBarBackgroundColor": "#399de6",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#eeeeee",
+    "backgroundTextStyle": "light"
+  },
+  "tabBar": {
+    "color": "#95a5a6",
+    "selectedColor": "#3498db",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "text": "主页",
+        "iconPath": "images/home_1.png",
+        "selectedIconPath": "images/home_2.png"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "text": "用户中心",
+        "iconPath": "images/user_1.png",
+        "selectedIconPath": "images/user_2.png"
+      }
+    ]
+  }
+}

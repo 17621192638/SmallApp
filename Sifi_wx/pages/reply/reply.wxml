@@ -1,0 +1,20 @@
+<view style="margin:50rpx 25rpx 0 25rpx;width:700rpx;align-items:start " class="container">
+<view class="font">欢迎您留下宝贵的意见或建议</view>
+<view class="info">
+
+<image class='image' src="/images/tel.png"></image>
+      <input maxlength="30" type='text' confirm-type="search" value="{{info}}" bindinput="infoChange" style="width:520rpx" placeholder="手机号码/邮箱地址" />
+ <image catchtap="infoClear" wx:if="{{info}}" class='image' src="/images/icon_delete.png"></image>
+</view>
+<view class="font">留言内容</view>
+
+<view style="height:520rpx;flex-direction:column" class="info">
+<textarea bindinput="contentChange" class="area"  maxlength='200' placeholder="请输入您的反馈建议（不超过200字）" />
+<view wx:if='{{cursor}}' class="cursor">{{cursor}}/200</view>
+<view wx:else></view>
+</view>
+
+
+ <button  type='primary' style="margin-top:40rpx" class="button1" catchtap="submit">提交反馈</button>
+
+</view>

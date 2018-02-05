@@ -1,0 +1,70 @@
+<view class="container">
+  <view class="head" style="height:80rpx">
+     <!-- <view class="search">
+      <image class='image' src="/images/icon_search.png"></image>
+      <input confirm-type="search" bindinput="valuechange" style="width:520rpx" placeholder="搜索:证书编号/样品名称" />
+      <image wx:if="{{value}}" class='image' src="/images/icon_delete.png"></image>
+    </view>  -->
+
+    <view class="part">
+      您当前共检索出<text>{{totals}}</text>条记录,每页<text>25</text>条,共<text>{{pages}}</text>页
+    </view>
+  </view>
+  <progress wx:if="{{!list}}" percent="{{percent}}" stroke-width="6" />
+  <view wx:else style="margin-top:80rpx">
+    <block wx:for="{{list}}" wx:for-index="idx" wx:key="list">
+      <view class="content">
+        <view class="left">
+          <image class="image" src='/images/icon_cert.png'>
+          </image>
+        </view>
+        <view class="right"  data-id="{{idx}}" catchtap="show_detail" >
+          <view class="part1">
+            <text>证书号:{{item.newcertificateno}}</text>
+
+            <text wx:if="{{item.endNode !='出证'}}">预计出证日期:{{item.endNode}}</text>
+            <text wx:else></text>
+          </view>
+          <view class="part3"  >
+            {{item.musterName}}
+          </view>
+          <view wx:if="{{item.endNode=='出证'}}" class="part2" style="color:#56A36C">
+            ( 出证 )
+          </view>
+          <view wx:else class="part2" style="color:#00B0F0">
+            ( 正在检测中... )
+          </view>
+          <view class="part1">
+            <text>参考费用:{{item.orderPrice}}元</text>
+            <text>收样日期:{{item.receiveDate}}</text>
+          </view>
+          <block wx:if="{{item.endNode=='出证'}}">
+            <image wx:if="{{item.isPass=='不合格'}}" class="image1" src="/images/icon_nopass.png"></image>
+            <image wx:elif="{{item.isPass=='合格'}}" class="image1" src="/images/icon_pass.png"></image>
+            <view wx:else></view>
+          </block>
+        </view>
+
+      </view>
+      <view class="hr6"></view>
+    </block>
+  </view>
+  <view style="height:100rpx;"></view>
+  <view class="footer">
+    <view class="foot">
+      <text catchtap="precentPage" class="box">上一页</text>
+      <view bindlongpress="pickPage" class="page">
+        <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+          <view class="picker">
+            {{array[index]}}
+          </view>
+        </picker>
+      </view>
+      <text catchtap="nextPage" class="box">下一页</text>
+    </view>
+  </view>
+
+</view>
+
+<import src="/utils/model.wxml" />
+<template is="model2" data='{{showModel1,pageNum}}' />

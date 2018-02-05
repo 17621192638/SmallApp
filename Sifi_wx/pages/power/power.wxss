@@ -1,0 +1,8 @@
+/* pages/power/power.wxss */
+.head{
+width:700rpx;
+margin:25rpx;
+font-size:30rpx;
+line-height:45rpx;
+}
+

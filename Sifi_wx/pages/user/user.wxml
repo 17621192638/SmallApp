@@ -1,0 +1,120 @@
+
+  <view class="container" >
+    <view class="head">
+      <block wx:if="{{userInfo}}">
+        <image class='image' src="{{userInfo.avatarUrl}}"></image>
+        <view class="content">
+          <view class="name">
+            {{userInfo.nickName}}
+            <view wx:if="{{!userInfo || userType=='游客'}}" class="tag3">游客</view>
+            <view wx:else class="tag2">已认证</view>
+          </view>
+          <text style='margin-top:15rpx; color:#aaa;'>{{userInfo.country               }}</text>
+        </view>
+      </block>
+      <block wx:else>
+        <image class='image' src="/images/icon_null.png"></image>
+        <view class="content">
+
+          <view class="name">
+            尚未授权
+          </view>
+        </view>
+      </block>
+    </view>
+
+    <view class="hr1"></view>
+    <view class="part1">
+      <view class="left">
+        <image class="image" src="/images/icon_user.png"></image>
+        <text>用户认证</text>
+      </view>
+      <view wx:if="{{!userInfo || userType=='游客'}}" class="right" catchtap="show_bind">
+        去绑定
+        <image class="image2" src="/images/right.png"></image>
+      </view>
+      <view wx:else class="right2">{{userType}}</view>
+    </view>
+    <view class="hr3"></view>
+    <view class="part1">
+      <view class="left">
+        <image class="image" src="/images/icon_build.png"></image>
+        <text>所属机构</text>
+      </view>
+      <view wx:if="{{!userInfo || userType=='游客'}}" class="right" catchtap="show_bind">
+        尚未认证
+        <image class="image2" src="/images/right.png"></image>
+      </view>
+      <view wx:else class="right2" data-companyname="{{user.companyname}}" catchtap="show_companyname">{{user.companyname}}</view>
+    </view>
+    <view class="hr3"></view>
+    <view class="part1">
+      <view class="left">
+        <image class="image" src="/images/icon_safe.png"></image>
+        <text>权限账号</text>
+      </view>
+      <view wx:if="{{!userInfo || userType=='游客'}}" class="right" catchtap="show_bind">
+        尚未认证
+        <image class="image2" src="/images/right.png"></image>
+
+      </view>
+      <view wx:else class="right2">{{user.username}}</view>
+    </view>
+    <view class="hr3"></view>
+    <view class="part1" catchtap="show_power">
+      <view class="left">
+        <image class="image" src="/images/icon_tip.png"></image>
+        <text>权限说明</text>
+      </view>
+      <view class="right">
+        <image class="image2" src="/images/right.png"></image>
+      </view>
+    </view>
+    <view class="hr1"></view>
+    <view class="part1">
+      <view class="left">
+        <image class="image" src="/images/tel.png"></image>
+        <text>客服电话</text>
+      </view>
+      <view class="right">
+        <text data-number='021-62481029' bindtap="getCall">  021-62481029</text>
+
+        <image class="image2" src="/images/right.png"></image>
+      </view>
+    </view>
+    <view class="hr3"></view>
+    <view class="part1">
+      <view class="left">
+        <image class="image" src="/images/icon_service.png"></image>
+        <text>技术咨询</text>
+      </view>
+      <view class="right">
+        <text data-number='021-62481793' bindtap="getCall">021-62481793</text>
+        <image class="image2" src="/images/right.png"></image>
+      </view>
+    </view>
+    <view class="hr1"></view>
+    <view class="part1" catchtap="clear">
+      <view class="left">
+        <image class="image" src="/images/icon_clear.png"></image>
+        <text>清空缓存</text>
+      </view>
+      <view class="right">
+        <image class="image2" src="/images/right.png"></image>
+      </view>
+    </view>
+    <view class="hr3"></view>
+    <view class="part1" catchtap="showReply">
+      <view class="left">
+        <image class="image" src="/images/reply.png"></image>
+        <text>意见留言</text>
+      </view>
+      <view class="right">
+        <image class="image2" src="/images/right.png"></image>
+      </view>
+    </view>
+    <view class="hr1" style="margin-bottom:30rpx;"></view>
+
+    <button wx:if="{{userInfo}}" class="button1" bindtap="cancel_userInfo" type='warn'>取消授权</button>
+    <button wx:else type='primary' class="button1" bindtap="get_userInfo">点击授权</button>
+  </view>

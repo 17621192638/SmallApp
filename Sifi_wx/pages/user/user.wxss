@@ -1,0 +1,85 @@
+/* pages/user/user.wxss */
+page{
+  overflow-y: hidden;
+}
+.head {
+  width: 720rpx;
+  height: 150rpx;
+  display: flex;
+  flex-direction: row;
+  margin: 20rpx 0 20rpx 30rpx;
+}
+
+.head .image {
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 50%;
+}
+
+.head .content {
+  margin-left: 30rpx;
+  width: 500rpx;
+  height: 150rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 35rpx;
+}
+
+.head .name {
+  display: flex;
+  height: 45rpx;
+  flex-direction: row;
+  align-items: center;
+}
+
+.part1 {
+  padding: 20rpx 0 20rpx 25rpx;
+  width: 725rpx;
+  height: 45rpx;
+  display: flex;
+  flex-direction: row;
+  font-size: 35rpx;
+  justify-content: space-between;
+}
+/* 灰色#eff0f2 */
+.part1:active{
+  background-color: #89d183
+}
+
+.part1 .image {
+  width: 45rpx;
+  height: 45rpx;
+  margin: 0 25rpx;
+}
+
+.part1 .image2 {
+  width: 40rpx;
+  height: 40rpx;
+  text-align: right;
+  margin: 0 25rpx;
+}
+
+.left {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.right {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: #aaa;
+}
+
+.right2 {
+  font-size: 32rpx;
+  line-height: 45rpx;
+  margin-right: 25rpx;
+  color: #aaa;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 445rpx;
+}

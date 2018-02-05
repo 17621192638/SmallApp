@@ -1,0 +1,22 @@
+<import src="../wxParse/wxParse.wxml" />
+<wxs module="filter" src="../../utils/filter.wxs"></wxs>
+<!--这里data中article为bindName-->
+
+<block wx:if="{{showModel}}">
+  <view class="head">
+    <view class="title">{{model.title}}</view>
+    <view class="tabs">
+      <view class="tab1">{{filter.formatTime1(model.creattime)}}</view>
+      <view class="tab2">来源:{{model.keyword}}</view>
+      <view class="tab3">点击率:{{model.readcount}}</view>
+    </view>
+    <view class="hr9"></view>
+  </view>
+  <view class="content">
+    <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+  </view>
+  <view style="height:80rpx"></view>
+</block>
+<block wx:else>
+  <loading hidden="{{hiddenLoading}}">正在加载</loading>
+</block>

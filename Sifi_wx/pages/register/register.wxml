@@ -1,0 +1,45 @@
+<!--pages/bind/bing.wxml-->
+
+<view class="container">
+  <view class="head">
+    <block wx:if="{{userInfo}}">
+      <image class='image' src="{{userInfo.avatarUrl}}"></image>
+    </block>
+  </view>
+  <view class="hr1"></view>
+
+
+  <form bindsubmit="formSubmit" bindreset="formReset">
+    <view class="part1">
+      <image class='image' src='/images/icon_username.png'></image>
+      <text>账号</text>
+      <input name="username" class="input1" placeholder="请输入你的账号" />
+    </view>
+    <view class="hr2"></view>
+
+    <view class="part1">
+      <image class='image' src='/images/icon_pwd.png'></image>
+      <text>密码</text>
+      <input name="password" password class="input1" placeholder="请输入你的密码" />
+    </view>
+    <view class="hr2"></view>
+
+
+    <view class="part1">
+      <image class='image' src='/images/icon_pwd.png'></image>
+      <text>密码</text>
+      <input name="password2" password class="input1" placeholder="请重复你的密码" />
+    </view>
+
+    <view class="hr1" style="margin-bottom:30rpx;"></view>
+    <button class="button1" type="primary" formType="submit">发起注册</button>
+    <button class="button1" style="margin-top:30rpx" type="primary" formType="reset">重置</button>
+  </form>
+  <view class="part2">
+    <text>温馨提示:</text>
+    <text>1.每个微信号仅能注册一个新账户,注册完毕后将自动绑定微信号,无须再认证绑定。
+  </text>
+    <text>2.若曾经是上海市质检院纤维检验所的协议用户,可直接返回到【老用户认证】,进行用户认证绑定，无需注册新帐户。</text>
+    <text>3.注册过程中出现未知错误请返回【用户中心】联系技术人员。</text>
+  </view>
+</view>

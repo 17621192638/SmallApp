@@ -1,0 +1,47 @@
+// 2018-01-01 jzy:新闻过滤器
+var formatTime1 = function (res) {
+  var date = getDate(res)
+  var year = date.getFullYear()
+  var month = date.getMonth() + 1
+  var day = date.getDate()
+  return [year, month, day].map(formatNumber).join('-')
+}
+var formatNumber = function (n) {
+  n = n.toString()
+  return n[1] ? n : '0' + n
+}
+
+var checkImgUrl = function (imgurl, index) {
+  var url = imgurl.split(',')[index]
+  return url.indexOf('www.sifi.com.cn') == -1 ? 'https://wx.sifi.com.cn/SifiWeb/' + url : url
+}
+var imgSize = function (imgurl) {
+  if (!imgurl.split(',')[0]) { return 0 } else if (imgurl.split(',').length < 3 && imgurl.split(',').length >= 1) {
+    return 1
+  } else if (imgurl.split(',').length >= 3) {
+    return 2
+  }
+}
+
+// wxParse.wxml
+var imgUrlHttps = function (url) {
+  var http = 'http://www.sifi.com.cn/'
+  var https = 'https://wx.sifi.com.cn/SifiWeb/'
+  url = url.indexOf(http) == -1 ? https + url : url.replace(http, https)
+  return url
+}
+
+var textFilter = function (text) {
+  
+
+  return text.indexOf('<o:') == -1 && text.indexOf('<v:') == -1 && text.indexOf('<st') == -1 ? text : ''
+}
+//wxParse.wxml结束
+
+module.exports = {
+  formatTime1: formatTime1, //日期管道
+  checkImgUrl: checkImgUrl,  //检查图片路径是否包含www.sifi.com.cn
+  imgSize: imgSize,  //返回图片的数量
+  imgUrlHttps: imgUrlHttps,//图片前缀新增https
+  textFilter: textFilter
+}
