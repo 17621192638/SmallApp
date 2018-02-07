@@ -19,7 +19,8 @@ Page({
       pageNum: 1,
       hasNext: true,//false全部加载
       list: [],
-      showNews: 'loading'  //fail失败，loading加载中,success加载更多 
+      showNews: 'loading',  //fail失败，loading加载中,success加载更多 
+
     },
   },
 
@@ -193,7 +194,7 @@ Page({
     wx.navigateTo({
       url: '/pages/news_detail/news_detail?id=' + this.data.newsData.list[res.currentTarget.dataset.id].id,
     })
-    
+
   },
 
   getNews: function () {
@@ -206,16 +207,16 @@ Page({
           resolve(res)
         },
         fail: () => { reject() }
+
       })
     })
     promise.then((res) => {
       if (res.statusCode == 200) {
         that.setData({
           'newsData.hasNext': res.data.hasNextPage,
-          'newsData.list': that.data.newsData.list.concat(res.data.list),
+          'newsData.list': that.data.newsData.menuid == res.data.menuid ? that.data.newsData.list.concat(res.data.list) : that.data.newsData.list,
           canUseRefresh: true
         })
-
       } else {
         that.setData({
           'newsData.showNews': 'fail'
@@ -226,6 +227,7 @@ Page({
         'newsData.showNews': 'fail'
       })
     })
+
   },
   changeNewsType: function (res) {
     this.setData({
@@ -253,7 +255,7 @@ Page({
         'newsData.pageNum': this.data.newsData.pageNum + 1,
         'newsData.showNews': 'loading',
         'canUseRefresh': false
-
+        , 'canUseRefresh_detailPosition': true,
       })
       setTimeout(() => {
         this.getNews()

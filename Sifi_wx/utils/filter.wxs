@@ -34,7 +34,7 @@ var imgUrlHttps = function (url) {
 var textFilter = function (text) {
   
 
-  return text.indexOf('<o:') == -1 && text.indexOf('<v:') == -1 && text.indexOf('<st') == -1 ? text : ''
+  return text.indexOf('span>') == -1 && text.indexOf('<o:') == -1 && text.indexOf('<v:') == -1 && text.indexOf('<st') == -1 ? text : ''
 }
 //wxParse.wxml结束
 
